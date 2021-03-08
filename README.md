@@ -22,13 +22,12 @@ https://docs.trefle.io/reference#operation/listPlants
 # Want to see what it looks like?
 
 ## Screen 1: List of plants (pulled via Trefle plant api):
-<img src="https://github.com/deanezra/blob/master/appdetail/screens/screen1_list.jpg" height="600" width="300">
+<img src="https://github.com/deanezra/TreflePlantsAndroid/blob/c6850dc3e47deaf95dccaab05ded1efe7c159974/appdetail/screens/screen1_list.jpg" height="600" width="300">
 
 ## Screen 2: Clicking on a plant in list shows its details via slide up sheet/panel:
-<img src="https://github.com/deanezra/blob/master/appdetail/screens/screen2_details.jpg" height="600" width="300">
+<img src="https://github.com/deanezra/TreflePlantsAndroid/blob/c6850dc3e47deaf95dccaab05ded1efe7c159974/appdetail/screens/screen2_details.jpg" height="600" width="300">
 
-## Video of the app running on a Samsung S9+ Android 10:
-<a href="https://github.com/deanezra/blob/master/appdetail/video/trefleplantapp_video.mp4">
+
 
 # Important: How to build and run the app:
 

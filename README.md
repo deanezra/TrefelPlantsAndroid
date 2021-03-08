@@ -10,7 +10,7 @@ https://docs.trefle.io/reference#operation/listPlants
 - Architecture: MVVM (Model View View Model)
 - Networking: Retrofit 2
 - Dependency Injection: Dagger2
-- Unit tests: Junit and Mockk
+- Unit tests: Junit and Mockito
 - UI: Fragments, RecyclerView and BottomSheetDialogFragement
 
 # What does the app do?

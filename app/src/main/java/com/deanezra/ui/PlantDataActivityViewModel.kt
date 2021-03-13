@@ -5,12 +5,13 @@ import androidx.lifecycle.ViewModel
 import com.deanezra.di.modules.NetworkModule
 import com.deanezra.network.NetworkStatus
 import com.deanezra.network.model.BasePlants
+import com.deanezra.repository.PlantDataRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class PlantDataActivityViewModel @Inject constructor() : ViewModel() {
+class PlantDataActivityViewModel @Inject constructor(private val plantDataRepository: PlantDataRepository) : ViewModel() {
 
     @Inject
     lateinit var networkModule: NetworkModule
@@ -20,11 +21,8 @@ class PlantDataActivityViewModel @Inject constructor() : ViewModel() {
 
     fun fetchPlants() {
 
-        val networkDataAPI =
-            networkModule.providePlantDataApi(networkModule.provideRetrofitInterface())
-
         val networkDataAPICall =
-            networkDataAPI.getPlants()
+            plantDataRepository.getPlants()
 
         networkDataAPICall.enqueue(object : Callback<BasePlants> {
 

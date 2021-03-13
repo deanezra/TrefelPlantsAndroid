@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 
-interface PlantDataAPI{
+interface PlantDataApiService{
     /**
      * Get the list of the Plants from the API
      */

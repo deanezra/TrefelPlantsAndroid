@@ -6,32 +6,42 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.deanezra.R
+import com.deanezra.databinding.DialogPlantDataDetailBinding
 import com.deanezra.network.model.Plant
-import kotlinx.android.synthetic.main.dialog_plant_data_detail.*
-import kotlinx.android.synthetic.main.dialog_plant_data_detail.ivPlantImage
-import kotlinx.android.synthetic.main.item_plant.*
-import kotlinx.android.synthetic.main.item_plant.view.*
 
 class PlantDataDetailFragment(private var plant: Plant) :
     BottomSheetDialogFragment() {
 
+    private var _binding: DialogPlantDataDetailBinding? = null
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View =
-        inflater.inflate(R.layout.dialog_plant_data_detail, container, false)
+    ): View? {
+        _binding = DialogPlantDataDetailBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
+
 
     private fun hideAllFieldsAtStart() {
-        tvDialogDataDetailCommonName.visibility = View.GONE
-        tvDialogDataDetailFamily.visibility = View.GONE
-        tvDialogDataDetailScientificName.visibility = View.GONE
-        tvDialogDataDetailYear.visibility = View.GONE
-        tvDialogDataDetailBibliography.visibility = View.GONE
-        tvDialogDataDetailStatus.visibility = View.GONE
-        tvDialogDataDetailRank.visibility = View.GONE
-        tvDialogDataDetailGenus.visibility = View.GONE
-        tvDialogDataDetailAuthor.visibility = View.GONE
+        binding.detailsCommonNameTextView.visibility = View.GONE
+        binding.detailsFamilyTextView.visibility = View.GONE
+        binding.detailsScientificNameTextView.visibility = View.GONE
+        binding.detailsYearTextView.visibility = View.GONE
+        binding.detailsBibliographyTextView.visibility = View.GONE
+        binding.detailsStatusTextView.visibility = View.GONE
+        binding.detailsRankTextView.visibility = View.GONE
+        binding.detailsGenusTextView.visibility = View.GONE
+        binding.detailsAuthorTextView.visibility = View.GONE
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,70 +51,57 @@ class PlantDataDetailFragment(private var plant: Plant) :
 
         // Set the values into the view if there are populated:
         plant.commonName?.let {
-            tvDialogDataDetailCommonName.text = "${it} details:"
-            tvDialogDataDetailCommonName.visibility = View.VISIBLE
+            binding.detailsCommonNameTextView.text = "${it} details:"
+            binding.detailsCommonNameTextView.visibility = View.VISIBLE
         }
 
         plant.family?.let {
-            tvDialogDataDetailFamily.text = "Family: ${it}"
-            tvDialogDataDetailFamily.visibility = View.VISIBLE
+            binding.detailsFamilyTextView.text = "Family: ${it}"
+            binding.detailsFamilyTextView.visibility = View.VISIBLE
         }
 
         plant.scientificName?.let {
-            tvDialogDataDetailScientificName.text = "Scientific name: ${it}"
-            tvDialogDataDetailScientificName.visibility = View.VISIBLE
+            binding.detailsScientificNameTextView.text = "Scientific name: ${it}"
+            binding.detailsScientificNameTextView.visibility = View.VISIBLE
         }
 
         plant.year?.let {
-            tvDialogDataDetailYear.text = "Year: " + plant.year
-            tvDialogDataDetailYear.visibility = View.VISIBLE
+            binding.detailsYearTextView.text = "Year: " + plant.year
+            binding.detailsYearTextView.visibility = View.VISIBLE
         }
 
         plant.bibliography?.let {
-            tvDialogDataDetailBibliography.text = "Bibliography: ${it}"
-            tvDialogDataDetailBibliography.visibility = View.VISIBLE
+            binding.detailsBibliographyTextView.text = "Bibliography: ${it}"
+            binding.detailsBibliographyTextView.visibility = View.VISIBLE
         }
 
         plant.status?.let {
-            tvDialogDataDetailStatus.text = "Status: ${it}"
-            tvDialogDataDetailStatus.visibility = View.VISIBLE
+            binding.detailsStatusTextView.text = "Status: ${it}"
+            binding.detailsStatusTextView.visibility = View.VISIBLE
         }
 
         plant.rank?.let {
-            tvDialogDataDetailRank.text = "Rank: ${it}"
-            tvDialogDataDetailRank.visibility = View.VISIBLE
+            binding.detailsRankTextView.text = "Rank: ${it}"
+            binding.detailsRankTextView.visibility = View.VISIBLE
         }
 
         plant.genus?.let {
-            tvDialogDataDetailGenus.text = "Genus: ${it}"
-            tvDialogDataDetailGenus.visibility = View.VISIBLE
+            binding.detailsGenusTextView.text = "Genus: ${it}"
+            binding.detailsGenusTextView.visibility = View.VISIBLE
         }
 
         plant.author?.let {
-            tvDialogDataDetailAuthor.text = "Author: ${it}"
-            tvDialogDataDetailAuthor.visibility = View.VISIBLE
+            binding.detailsAuthorTextView.text = "Author: ${it}"
+            binding.detailsAuthorTextView.visibility = View.VISIBLE
         }
 
         plant.imageUrl?.let {
-            Glide.with(context!!).load(it).into(ivPlantImage);
+            Glide.with(context!!).load(it).into(binding.plantImageView);
         }
 
-        ivDialogClose.setOnClickListener{
+        binding.ivDialogClose.setOnClickListener{
             dismiss()
         }
 
-    }
-
-
-    private fun getDataDetail(): String {
-        var plantData = ""
-
-            if (plant!=null) {
-                plantData = " Common Name-> " + plant.commonName + " \n\n"+
-                    " Family-> " + plant.family + " \n\n"+
-                    " Family Common Name -> " + plant.familyCommonName + " \n\n"+
-                    " Scientify name -> " + plant.scientificName + " \n\n"
-        }
-        return plantData
     }
 }

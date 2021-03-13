@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivPlantImage"
+        android:id="@+id/plantImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="16dp"
@@ -17,18 +17,18 @@
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/llDetails"
+        android:id="@+id/detailsLinearLayout"
         android:orientation="vertical"
         android:layout_margin="16dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ivPlantImage"
+        app:layout_constraintStart_toEndOf="@id/plantImageView"
         app:layout_constraintEnd_toStartOf="@id/ivDialogClose">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailCommonName"
+            android:id="@+id/detailsCommonNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/plant_details"
@@ -36,7 +36,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailScientificName"
+            android:id="@+id/detailsScientificNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -45,7 +45,7 @@
             tools:text="Scientific name here" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailYear"
+            android:id="@+id/detailsYearTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -54,7 +54,7 @@
             tools:text="Year" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailFamily"
+            android:id="@+id/detailsFamilyTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -63,7 +63,7 @@
             tools:text="Family here" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailBibliography"
+            android:id="@+id/detailsBibliographyTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -71,7 +71,7 @@
             tools:text="Bibliography here" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailAuthor"
+            android:id="@+id/detailsAuthorTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -79,7 +79,7 @@
             tools:text="Author here" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailStatus"
+            android:id="@+id/detailsStatusTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -87,7 +87,7 @@
             tools:text="Status here" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailRank"
+            android:id="@+id/detailsRankTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -95,7 +95,7 @@
             tools:text="Rank here" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDialogDataDetailGenus"
+            android:id="@+id/detailsGenusTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -109,7 +109,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:padding="2dp"
-        app:layout_constraintStart_toEndOf="@id/llDetails"
+        app:layout_constraintStart_toEndOf="@id/detailsLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_close" />

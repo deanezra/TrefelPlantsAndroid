@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.android.material.snackbar.Snackbar
 import com.deanezra.R
+import com.deanezra.databinding.ActivityPlantDataBinding
 import com.deanezra.network.NetworkStatus
 import com.deanezra.network.model.BasePlants
 import dagger.android.AndroidInjection
-import kotlinx.android.synthetic.main.activity_plant_data.*
 import javax.inject.Inject
 
 class PlantDataActivity : AppCompatActivity() {
@@ -22,23 +22,28 @@ class PlantDataActivity : AppCompatActivity() {
     @Inject
     lateinit var networkDataAdapter: PlantDataAdapter
 
+    private lateinit var binding: ActivityPlantDataBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_plant_data)
+        binding = ActivityPlantDataBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
         prepareView()
         callApiAndUpdateUI()
     }
 
     private fun prepareView() {
-        plantsRecycleView.itemAnimator = DefaultItemAnimator()
-        plantsRecycleView.addItemDecoration(
+        binding.plantsRecycleView.itemAnimator = DefaultItemAnimator()
+        binding.plantsRecycleView.addItemDecoration(
             DividerItemDecoration(
                 this,
                 DividerItemDecoration.VERTICAL
             )
         )
-        this.plantsRecycleView.adapter = networkDataAdapter
+        binding.plantsRecycleView.adapter = networkDataAdapter
         networkDataAdapter.onItemClick = { user ->
 
             // do something with your item
@@ -51,10 +56,10 @@ class PlantDataActivity : AppCompatActivity() {
     }
 
     private fun callApiAndUpdateUI() {
-        networkDataProgressBar.visibility = View.VISIBLE
+        binding.loadingProgressBar.visibility = View.VISIBLE
         networkDataActivityViewModel.networkLiveData.observe(this,
             Observer<BasePlants> { baseDataStore ->
-                networkDataProgressBar.visibility = View.GONE
+                binding.loadingProgressBar.visibility = View.GONE
 
                 if (baseDataStore != null) {
                     networkDataAdapter.addItemList(baseDataStore.plantlist!!)
@@ -68,7 +73,7 @@ class PlantDataActivity : AppCompatActivity() {
         // status of actions
         networkDataActivityViewModel.statusLiveData.observe(this,
             Observer<NetworkStatus> { status ->
-                networkDataProgressBar.visibility = View.GONE
+                binding.loadingProgressBar.visibility = View.GONE
                 onNetWorkStateChanged(status)
             })
         networkDataActivityViewModel.fetchPlants()

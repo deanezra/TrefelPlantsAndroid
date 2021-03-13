@@ -13,6 +13,8 @@ import javax.inject.Inject
 
 class MyApplication : Application(), HasActivityInjector {
 
+    private val BASE_URL = "https://trefle.io"
+
     @Inject
     lateinit var activityInjector: DispatchingAndroidInjector<Activity>
 
@@ -23,12 +25,10 @@ class MyApplication : Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
 
-       // added dagger
-          DaggerAppComponent.builder()
-            .networkModule(NetworkModule(this))
+        // Inject our network dependencies:
+        DaggerAppComponent.builder()
+            .networkModule(NetworkModule(this, BASE_URL))
             .build()
             .inject(this)
-
-
     }
 }

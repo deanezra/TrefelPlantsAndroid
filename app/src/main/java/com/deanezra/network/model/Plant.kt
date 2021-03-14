@@ -59,4 +59,35 @@ class Plant {
     @SerializedName("family")
     @Expose
     var family: String? = null
+
+    constructor(id: String,
+                commonName: String,
+                slug: String,
+                scientificName: String,
+                year: String,
+                bibliography: String,
+                author: String,
+                status: String,
+                rank: String,
+                familyCommonName: String,
+                genusId: Int,
+                imageUrl: String,
+                genus: String,
+                family: String
+    ) {
+        this.id = id
+        this.commonName = commonName
+        this.slug = slug
+        this.scientificName = scientificName
+        this.year = year
+        this.bibliography = bibliography
+        this.author = author
+        this.status = status
+        this.rank = rank
+        this.familyCommonName = familyCommonName
+        this.genusId = genusId
+        this.imageUrl = imageUrl
+        this.genus = genus
+        this.family = family
+    }
 }

@@ -10,7 +10,7 @@ https://docs.trefle.io/reference#operation/listPlants
 - Architecture: MVVM (Model View View Model)
 - Networking: Retrofit 2
 - Dependency Injection: Hilt (Googles wrapper to Dagger2 that simplifies DI boiler plate code via no components)
-- Unit tests: Junit and Mockito
+- Unit tests: MockK and instrumented unit tests - because Hilt injection currently wont work in plain JVM unit tests.
 - UI: Use of ViewBindings, Fragments, RecyclerView and BottomSheetDialogFragment
 
 # What does the app do?

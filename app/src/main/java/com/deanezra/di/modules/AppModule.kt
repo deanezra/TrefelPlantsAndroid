@@ -47,9 +47,9 @@ object AppModule {
         .build()
 
     @Provides
-    fun provideRetrofit(client: OkHttpClient, gson: Gson) = Retrofit.Builder()
+    fun provideRetrofit(client: OkHttpClient, gson: Gson, baseUrl: String) = Retrofit.Builder()
         .client(client)
-        .baseUrl(baseUrl())
+        .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 

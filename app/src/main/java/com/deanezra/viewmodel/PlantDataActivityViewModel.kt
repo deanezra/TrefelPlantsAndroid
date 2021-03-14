@@ -24,10 +24,10 @@ class PlantDataActivityViewModel @Inject constructor(
         get() = _res
 
     init {
-        getPlants()
+        //getPlants()
     }
 
-    private fun getPlants()  = viewModelScope.launch {
+    fun getPlants()  = viewModelScope.launch {
         _res.postValue(Resource.loading(null))
 
         plantRepository.getPlants().let {

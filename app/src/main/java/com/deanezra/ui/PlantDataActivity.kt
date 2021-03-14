@@ -80,6 +80,8 @@ class PlantDataActivity : AppCompatActivity() {
                 }
             }
         })
+
+        plantDataActivityViewModel.getPlants()
     }
 
     private fun showSnackBar(msg: String) {

@@ -9,9 +9,9 @@ https://docs.trefle.io/reference#operation/listPlants
 - Language: Kotlin and coroutines
 - Architecture: MVVM (Model View View Model)
 - Networking: Retrofit 2
-- Dependency Injection: Dagger2
+- Dependency Injection: Hilt (Googles wrapper to Dagger2 that simplifies DI boiler plate code via no components)
 - Unit tests: Junit and Mockito
-- UI: Fragments, RecyclerView and BottomSheetDialogFragement
+- UI: Use of ViewBindings, Fragments, RecyclerView and BottomSheetDialogFragment
 
 # What does the app do?
 

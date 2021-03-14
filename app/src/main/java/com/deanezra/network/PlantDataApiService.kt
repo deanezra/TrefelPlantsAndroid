@@ -1,7 +1,7 @@
 package com.deanezra.network
 
-import com.deanezra.network.model.BasePlants
-import retrofit2.Call
+import com.deanezra.network.model.PlantsResponse
+import retrofit2.Response
 import retrofit2.http.GET
 
 
@@ -11,6 +11,6 @@ interface PlantDataApiService{
      */
     //https://trefle.io/api/v1/plants?token=XYZ
     @GET("/api/v1/plants")
-    fun getPlants(): Call<BasePlants>
+    suspend fun getPlants(): Response<PlantsResponse>
 
 }
